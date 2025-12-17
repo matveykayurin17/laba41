@@ -15,7 +15,7 @@ class Test:
         test_book.remove(book3)
         assert test_book.__len__()==2
         assert test_book.__getitem__(0)==book1
-        assert test_book.__contains__(book1)==True
+        assert test_book.__contains__(book1)  is True
 
     def tests1(self):
         book4 = Book("m", "m1", 2, "m2", 4)
@@ -29,3 +29,22 @@ class Test:
         test2_book.append_key_value(book4)
         test2_book.append_key_value(book5)
         test2_book.append_key_value(book6)
+
+        test3_book.append_key_value(book4)
+        test3_book.append_key_value(book5)
+        test3_book.append_key_value(book6)
+
+
+        test4_book.append_key_value(book4)
+        test4_book.append_key_value(book5)
+        test4_book.append_key_value(book6)
+
+
+        test3_book.remove_key_value(book6)
+        test4_book.remove_key_value(book6)
+        test2_book.remove_key_value(book6)
+
+
+        assert test4_book.__len__()==2
+        assert test3_book.__len__()==2
+        assert test2_book.__len__()==2

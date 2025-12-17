@@ -42,25 +42,24 @@ class IndexDict:
         pass
 
     @abc.abstractmethod
-    def remove_key_value(self, key1:int | str)->None:
+    def remove_key_value(self, book:Book)->None:
         pass
 
-    def index1(self,key1)->Book:
-        try:
-            special_string="["
-            count=0
-            for item in self.dictionary[key1]:
-                if count!=len(self.dictionary[key1])-1:
-                    special_string+=str(item)
-                    special_string+=","
-                    special_string+=" "
-                else:
-                    special_string+=str(item)
-                    special_string+="]"
-                count+=1
-            return special_string
-        except KeyError as e:
-            logger.error(f"Ошибка {e}")
+    def index1(self,key1:int|str)->str | None:
+
+        special_string="["
+        count=0
+        for item in self.dictionary[key1]:
+            if count!=len(self.dictionary[key1])-1:
+                special_string+=str(item)
+                special_string+=","
+                special_string+=" "
+            else:
+                special_string+=str(item)
+                special_string+="]"
+            count+=1
+        return special_string
+
 
     def __str__(self):
         """Функция нужна для вывода содержимое коллекции на экран в нужном виде"""
@@ -129,8 +128,5 @@ class IsbnDict(IndexDict):
         except KeyError as e:
             logger.error(f"ошибка:{e}")
 
-    def index1(self,key1)->Book:
-        try:
-            return self.dictionary[key1]
-        except KeyError as e:
-            logger.error(f"Ошибка {e}")
+    def index1(self,key1:int | str)->str:
+            return str(self.dictionary[key1])

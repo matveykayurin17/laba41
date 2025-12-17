@@ -14,7 +14,7 @@ logger=logging.getLogger(__name__)
 class Main:
     isbn=0
     library1: Library
-    book1:Book=['1','2',0,'3',121331221]
+    book1:Book=Book("1","2",0,"2",12345678)
     @staticmethod
     def main(steps: int = 100, seed: int | None = None) -> None:
         Main.library1=Library()

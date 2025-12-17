@@ -16,14 +16,14 @@ class Library:
         self.dict2 = IsbnDict()
         self.dict3 = AuthorDict()
 
-    def add1(self, name: Book):
+    def add1(self, name: Book)->None:
         """Функция для добавления элемента в коллекцию"""
         self.list1.add(name)
         self.dict1.append_key_value(name)
         self.dict2.append_key_value(name)
         self.dict3.append_key_value(name)
 
-    def remove1(self, name: Book):
+    def remove1(self, name: Book)->None:
         """Функция для удаления элемента из коллекции"""
         self.list1.remove(name)
         self.dict1.remove_key_value(name)
@@ -37,14 +37,14 @@ class Library:
         self.dict2.__str__()
         self.dict3.__str__()
 
-    def search(self, isbn):
+    def search(self, isbn:int):
         """Функция для поиска значения по isbn"""
         return self.dict2.index1(isbn)
 
-    def search2(self, year):
+    def search2(self, year:int):
         """Функция для поиска значения по году"""
         return self.dict1.index1(year)
 
-    def search3(self, author):
+    def search3(self, author:str):
         """Функция для поиска значения по автору"""
         return self.dict3.index1(author)
