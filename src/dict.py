@@ -90,9 +90,7 @@ class YearDict(IndexDict):
     def remove_key_value(self, book: Book) ->None:
         try:
             """Функция удаляет ключ и значение"""
-            list3 = self.dictionary[book.year]
-            list3.remove(book)
-            self.dictionary[book.year] = list3
+            del self.dictionary[book.year]
         except KeyError as e:
             logger.error(f"ошибка:{e}")
 
@@ -110,9 +108,7 @@ class AuthorDict(IndexDict):
     def remove_key_value(self, book: Book) ->None:
         try:
             """Функция удаляет ключ и значение"""
-            list5 = self.dictionary[book.author]
-            list5.remove(book)
-            self.dictionary[book.author] = list5
+            del self.dictionary[book.author]
         except KeyError as e:
             logger.error(f"ошибка:{e}")
 
